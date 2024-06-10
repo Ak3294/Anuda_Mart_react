@@ -1,0 +1,23 @@
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.custom-arrow-left {
+  left: 10px;
+}
+
+.custom-arrow-right {
+  right: 10px;
+}
+
+.searchbox::placeholder{
+    margin-left:10px;
+}

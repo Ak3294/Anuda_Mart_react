@@ -1,0 +1,34 @@
+
+
+  @keyframes fadeIn {
+    from {
+      
+      opacity : 0;
+      transform: translateY(-100%);    }
+    to {
+      opacity : 1;
+      transform: translateY(-0%);
+    }
+  }
+
+
+  
+    .elementShadow{
+      box-shadow : 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .dropdownContent{
+    display:none;
+    opacity : 0;
+  }
+
+
+
+
+  .dropdown-wrapper:hover .dropdownContent {
+    display: block;
+    z-index: 999;
+    animation: fadeIn 0.7s forwards;
+  }
+
+  

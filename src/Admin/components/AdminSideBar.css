@@ -1,0 +1,16 @@
+.nav-link.active li {
+  background-color: #E40F15;
+}
+
+
+.sideNav {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(-100%);
+
+}
+
+.sideNav.show {
+    transform: translateX(0);
+
+
+}
