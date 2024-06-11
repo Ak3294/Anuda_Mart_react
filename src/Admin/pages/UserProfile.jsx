@@ -5,7 +5,7 @@ function UserProfile() {
     <div className="w-full">
       <div className="flex justify-between mb-4">
         <img
-          src="placeholder.png"
+          src="\src\assets\images\buyer\window.png"
           alt="User Profile Picture"
           className="w-12 h-12 rounded-full"
         />
@@ -144,45 +144,117 @@ function UserProfile() {
           />
         </div>
 
-        <div className="py-4">
-          <p className="text-black font-semibold mb-3">Order History:</p>
-          <div className="flex justify-between mb-3">
-            <img
-              src="placeholder.png"
-              alt="Order Item"
-              className="w-12 h-12 rounded"
-            />
-            <div className="ml-4 flex-grow">
-              <h3 className="text-sm font-bold">Craft Women Black Sling Bag</h3>
-              <p className="text-gray-600">☆ 487 🛒 936</p>
+        <div className="py-4 ">
+          <p className="text-black font-semibold mb-3 ">Order History:</p>
+          <div className="max-h-24 overflow-y-auto">
+            <div className="flex justify-between mb-3 mr-1 ">
+              <img src="\src\assets\images\products\img-2.png" className="w-12 h-12 rounded" />
+              <div className="ml-4 flex-grow">
+                <h3 className="text-sm font-bold">
+                  Craft Women Black Sling Bag
+                </h3>
+                <p className="text-gray-600">☆ 487 🛒 936</p>
+              </div>
+              <div className="flex items-center">
+                <p className="text-blue-600">$15.99</p>
+                <button className="ml-2 bg-black hover:bg-gray-800 text-white font-bold py-2 px-2 rounded">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-short"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <div className="flex items-center">
-              <p className="text-blue-600">$15.99</p>
-              <button className="ml-2 bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded">
-                <span role="img" aria-label="arrow">
-                  →
-                </span>
-              </button>
+            <div className="flex justify-between mb-3 mr-1 ">
+              <img src="\src\assets\images\products\img-2.png" className="w-12 h-12 rounded" />
+              <div className="ml-4 flex-grow">
+                <h3 className="text-sm font-bold">
+                  Craft Women Black Sling Bag
+                </h3>
+                <p className="text-gray-600">☆ 487 🛒 936</p>
+              </div>
+              <div className="flex items-center">
+                <p className="text-blue-600">$15.99</p>
+                <button className="ml-2 bg-black hover:bg-gray-800 text-white font-bold py-2 px-2 rounded">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-short"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
-          </div>
+            <div className="flex justify-between mb-3 mr-1">
+              <img src="\src\assets\images\products\img-2.png" className="w-12 h-12 rounded" />
+              <div className="ml-4 flex-grow">
+                <h3 className="text-sm font-bold">
+                  Craft Women Black Sling Bag
+                </h3>
+                <p className="text-gray-600">☆ 487 🛒 936</p>
+              </div>
+              <div className="flex items-center">
+                <p className="text-blue-600">$15.99</p>
+                <button className="ml-2 bg-black hover:bg-gray-800 text-white font-bold py-2 px-2 rounded">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-short"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
-          <div className="flex justify-between mb-3">
-            <img
-              src="placeholder.png"
-              alt="Order Item"
-              className="w-12 h-12 rounded"
-            />
-            <div className="ml-4 flex-grow">
-              <h3 className="text-sm font-bold">Craft Women Black Sling Bag</h3>
-              <p className="text-gray-600">☆ 487 🛒 936</p>
-            </div>
-            <div className="flex items-center">
-              <p className="text-blue-600">$15.99</p>
-              <button className="ml-2 bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded">
-                <span role="img" aria-label="arrow">
-                  →
-                </span>
-              </button>
+            <div className="flex justify-between mb-3 mr-1">
+              <img src="\src\assets\images\products\img-2.png" className="w-12 h-12 rounded" />
+              <div className="ml-4 flex-grow">
+                <h3 className="text-sm font-bold">
+                  Craft Women Black Sling Bag
+                </h3>
+                <p className="text-gray-600">☆ 487 🛒 936</p>
+              </div>
+              <div className="flex items-center">
+                <p className="text-blue-600">$15.99</p>
+                <button className="ml-2 bg-black hover:bg-gray-800 text-white font-semibold py-2 px-2 rounded">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-short"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>

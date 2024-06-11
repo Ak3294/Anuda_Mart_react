@@ -60,18 +60,17 @@ export default function Customers() {
           </div>
         </div>
 
-        
         <div className="flex">
           <div className="">
             <div
-              className="bg-white shadow-lg mt-4 mr-6 grid-gap-3 sm-grid-cols-4"
-              style={{ width: "65%" }}
+              className="bg-white shadow-lg mt-4 mr-6 grid-gap- sm-grid-cols-4"
+              style={{ width: "97.1%" }}
             >
               <form className="flex md:flex-row md:items-center">
-                <div className="flex items-center h-full">
-                  <div className="flex items-center w-full md:w-auto border border-gray-300 px-3 mb-4 md:mb-0 md:mr-4">
+                <div className="flex items-center h-full mt-3">
+                  <div className="flex items-center w-full md:w-auto border ml-9 border-gray-300 px-3 mb-4 md:mb-0 md:mr-4">
                     <svg
-                      className="text-gray-500 h-6 w-6"
+                      className="text-gray-500 h-6 w-5 ml-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -86,7 +85,7 @@ export default function Customers() {
                     <input
                       type="text"
                       placeholder="Search Customer, email, etc."
-                      className="w-full py-2 px-2 outline-none"
+                      className="w-full py-2 px-2 md:w-auto  outline-none"
                     />
                   </div>
 

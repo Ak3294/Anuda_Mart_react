@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const UserCard = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="mt-2 p-2 bg-white shadow-lg mr-6 grid-gap-4 sm-grid-cols-7">
       <div className="flex items-center ml-5">
-        <img
-          src="index.jpg"
-          alt="User"
-          className="w-12 h-10 rounded-full mr-4"
-        />
+        <img src="\src\assets\images\buyer\window.png" className="w-8 h-8 mb-1 rounded-full mr-4" />
         <div className="flex-grow">
           <div className="flex items-center justify-between space-x-4">
             <p className="font-semibold text-sm ml-3">John Doe</p>
@@ -22,11 +24,44 @@ const UserCard = () => {
         </span>
         {/* Visible hr tag show here */}
 
-        <button className="ml-2 bg-gray-500 text-white hover:bg-black font-semibold py-2 px-4 rounded w-8 h-7 flex items-center justify-center">
-          <span role="img" aria-label="dots">
-            &#x22EE;
-          </span>
-        </button>
+        <div className="relative">
+          <button
+            className="ml-2 text-[#DDDDDE] bg-black font-semibold py-2 px-3 rounded w-2 h-7 flex items-center justify-center focus:outline-none"
+            onClick={toggleDropdown}
+          >
+            <span role="img" aria-label="dots">
+              &#x22EE;
+            </span>
+          </button>
+
+          {isOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 max-h-28 cursor-pointer overflow-y-auto">
+              {/* Dropdown content goes here */}
+              <div className="">
+                <ul>
+                  <li className="py-2 px-4 hover:bg-gray-100 border">
+                    Option 1
+                  </li>
+                  <li className="py-2 px-4 hover:bg-gray-100 border">
+                    Option 2
+                  </li>
+                  <li className="py-2 px-4 hover:bg-gray-100 border">
+                    Option 3
+                  </li>
+                  <li className="py-2 px-4 hover:bg-gray-100 border">
+                    Option 1
+                  </li>
+                  <li className="py-2 px-4 hover:bg-gray-100 border">
+                    Option 2
+                  </li>
+                  <li className="py-2 px-4 hover:bg-gray-100 border">
+                    Option 3
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       <hr />
       <div className="flex justify-between items-center p-3">
