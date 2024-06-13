@@ -1,11 +1,10 @@
-// src/KycForm.js
 import React from "react";
 
 const KycForm = () => {
   return (
-    <div className="flex justify-center items-center grid-rows-3">
-      <form className="bg-white p-2 w-full ">
-        <h2 className="text-medium font-semibold mb-6">KYC Information</h2>
+    <div className=" mt-5 flex justify-center items-center ">
+      <form className="bg-white p-6 w-full max-w-lg shadow-md">
+        <h2 className="text-xl font-semibold mb-6">KYC Information</h2>
 
         <div className="mb-4">
           <label
@@ -18,7 +17,7 @@ const KycForm = () => {
             type="text"
             id="aadhaar"
             placeholder="XXXX-XXXX-XXXX"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
 
@@ -33,7 +32,7 @@ const KycForm = () => {
             type="text"
             id="gst"
             placeholder="XXXXARCPV"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
 
@@ -48,7 +47,7 @@ const KycForm = () => {
             type="text"
             id="pan"
             placeholder="ARCXXXXXX"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
 
