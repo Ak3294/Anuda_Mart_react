@@ -35,7 +35,7 @@ export default function AdminSideBar() {
     {
       name: "Profile",
       icon: <CiUser />,
-      link: "/dashboard",
+      link: "/admin/profile",
     },
     {
       name: "Customers",

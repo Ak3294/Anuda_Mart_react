@@ -6,14 +6,14 @@ import "./customerStyle.css";
 export default function Customers() {
   return (
     <>
-      <div className="p-1 bg-gray-100 min-h-screen">
+      <div className="p-1  min-h-screen">
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h3 className="text-sm font-semibold">CUSTOMERS</h3>
+            <h3 className="text-base font-semibold">CUSTOMERS</h3>
           </div>
           <div className="flex space-x-2 text-">
             <div className="hover:underline">
-              <a href="">Dashboard</a>
+              <a href="/admin/dashboard">Dashboard</a>
             </div>
             <div>
               <svg

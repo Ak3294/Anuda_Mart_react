@@ -12,6 +12,7 @@ import { store } from './store/Store.jsx'
 import AdminLayout from './Admin/AdminLayout.jsx'
 import AdminDashboard from './Admin/pages/AdminDashboard.jsx'
 import Customers from './Admin/pages/Customers.jsx'
+import Profile from './Admin/pages/Profile.jsx'
 
 
 
@@ -48,6 +49,10 @@ import Customers from './Admin/pages/Customers.jsx'
             {
               path:'customers',
               element: <Customers/>
+            },
+            {
+              path:'profile',
+              element: <Profile/>
             }
           ]
         }
