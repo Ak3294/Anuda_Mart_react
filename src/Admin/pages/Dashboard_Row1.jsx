@@ -262,25 +262,25 @@ const Dashboard_Row1 = () => {
             <div className="flex-shrink-0">
               <button
                 type="button"
-                className="  text-black bg-[#ffffff] hover:text-[#ffffff] hover:bg-black -mt-6 ml-1 btn btn-subtle-primary btn-sm"
+                className="bg-[#fcfcfc] text-[#090909] hover:bg-[#0c0c0c] hover:text-white -mt-6 ml-1 btn btn-subtle-primary btn-sm"
               >
                 All
               </button>
               <button
                 type="button"
-                className=" text-black bg-[#ffffff] hover:text-[#ffffff] hover:bg-black -mt-6 ml-1 btn btn-subtle-primary btn-sm"
+                className="bg-[#fcfcfc] text-[#090909] hover:bg-[#0c0c0c] hover:text-white -mt-6 ml-1 btn btn-subtle-primary btn-sm"
               >
                 1M
               </button>
               <button
                 type="button"
-                className=" text-black bg-[#ffffff] hover:text-[#ffffff] hover:bg-black -mt-6 ml-1 btn btn-subtle-primary btn-sm"
+                className="bg-[#fcfcfc] text-[#090909] hover:bg-[#0c0c0c] hover:text-white -mt-6 ml-1 btn btn-subtle-primary btn-sm"
               >
                 6M
               </button>
               <button
                 type="button"
-                className=" text-black bg-[#ffffff] hover:text-[#ffffff] hover:bg-black -mt-6 ml-1 btn btn-subtle-primary btn-sm"
+                className="bg-[#fcfcfc] text-[#090909] hover:bg-[#0c0c0c] hover:text-white -mt-6 ml-1 btn btn-subtle-primary btn-sm"
               >
                 1Y
               </button>

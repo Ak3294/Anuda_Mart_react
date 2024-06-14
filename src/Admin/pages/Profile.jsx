@@ -1,88 +1,13 @@
-import React from "react";
-import { useState } from "react";
-import useMultiStepFormHook from "../hooks/UseMultiStepFormHook";
-import { useNavigate } from "react-router-dom";
-import KycForm from "./kycForm";
+import React, { useState } from "react";
+import MultiStepForm from "./MultiStepForm";
+import "../../index.css";
+
 const Profile = () => {
-  let stepsName = [
-    {
-      name: "KYC Information",
-      id: 1,
-    },
-    {
-      name: "Personal Information",
-      id: 2,
-    },
-    {
-      name: "Business Information",
-      id: 3,
-    },
-    {
-      name: "Banking Information",
-      id: 4,
-    },
-  ];
-
-  let INITIAL_VAL = {
-    countryCode: "",
-    contactNum: "",
-    gstNumber: "",
-    bussinessName: "",
-    businessAddress: "",
-    productName: "",
-    productType: "",
-    productValue: "",
-    productCreator: "",
-    productSize: "",
-    categoryName: "",
-    categoryType: "",
-    categoryValue: "",
-    categoryCreator: "",
-    categoryItems: "",
-  };
-
-  const [formData, setFormData] = useState(INITIAL_VAL);
-
-  function updateFields(fields) {
-    setFormData((prev) => {
-      return { ...prev, ...fields };
-    });
-  }
-
   // Slider js
   const [sliderValue, setSliderValue] = useState(30); // Initial slider value
 
   const handleChange = (e) => {
     setSliderValue(e.target.value);
-  };
-
-  const {
-    formSteps,
-    currentStepIndex,
-    prev,
-    next,
-    setCurrentStepIndex,
-    isFirstStep,
-    isLastStep,
-  } = useMultiStepFormHook([
-    <KycForm formData={formData} updateField={updateFields} />,
-    // <CategoriesForm formData={formData} updateField={updateFields} />,
-    // <ProductsForm formData={formData} updateField={updateFields} />,
-  ]);
-
-  let handleSubmit = (e) => {
-    e.preventDefault();
-    if (!isLastStep) return next();
-
-    navigate("/admin/dashboard");
-  };
-
-  let navigate = useNavigate();
-  console.log(currentStepIndex);
-
-  let goTo = (id) => {
-    console.log(id);
-    setCurrentStepIndex(id - 1);
   };
 
   return (
@@ -193,16 +118,11 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="text-center mt-4">
-              <h2 className="text-xl font-bold">Richard Marshall</h2>
-
-              <div className="flex items-center space-x-1 ml-16 mb-10">
-                <span className="text-sm text-gray-500">Status:</span>
-                <span className="text-sm font-sm rounded p-0.5 bg-green-500 text-white">
-                  Active
-                </span>
+            <div className="text-center mt-3">
+              <h2 className="text-base font-semibold">Richard Marshall</h2>
+              <div className="blueTick ml-[60%] -mt-[100px] inline-block ">
                 <svg
-                  className="text-blue-400"
+                  className=" -mt-10 -ml-2 text-blue-400 "
                   xmlns="http://www.w3.org/2000/svg"
                   width="19"
                   height="19"
@@ -212,24 +132,27 @@ const Profile = () => {
                   <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708" />
                 </svg>
               </div>
+
+              <div className="flex items-center space-x-1 align-center justify-center mb-8 -mt-4 ">
+                <span className="text-sm text-gray-500">Status:-</span>
+                <span className="text-sm font-sm rounded p-0.5 bg-green-500 text-white">
+                  Active
+                </span>
+              </div>
             </div>
 
             <hr />
 
-            <div className="mt-4">
+            <div className="mt-4 mb-4">
               <h3 className="text-base font-medium ml-2">
                 Complete Your Profile
               </h3>
-              <div className="w-full max-w-md px-6 py-4 bg-white rounded-md">
-                <div className="mb-1">
-                  <input
-                    type="range"
-                    value={sliderValue}
-                    onChange={handleChange}
-                    min="0"
-                    max="100"
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
+              <div className="relative w-[80%] ml-4 flex mt-3 h-4 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="bg-blue-500  flex justify-center items-center text-white font-semibold"
+                  style={{ width: "40%" }}
+                >
+                  40%
                 </div>
               </div>
             </div>
@@ -347,58 +270,9 @@ const Profile = () => {
             </div>
           </div>
 
+          {/* Multi Step From */}
           <div className="w-full sm:w-3/4 p-2 ">
-            <div className="flex items-center justify-center mx-3">
-              <ul className="flex gap-1  ">
-                {stepsName.map((item, index) => {
-                  return (
-                    <li
-                      key={index}
-                      onClick={() => goTo(item.id)}
-                      className={`text-xs font-semibold leading-5 tracking-wider cursor-pointer ${
-                        currentStepIndex + 1 === item.id
-                          ? "bg-[#E40F15] text-white"
-                          : "bg-[#EBEBEB] "
-                      } py-2 w-[12rem] text-center`}
-                    >
-                      {item.name}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            <form action="" onSubmit={handleSubmit}>
-              <div className="formArea mx-3 grid grid-cols-12 ">
-                <div className="forms col-span-8 text-center place-items-center ">
-                  {formSteps[currentStepIndex]}
-                </div>
-              </div>
-
-              <div className="buttons flex justify-end items-center gap-3 mx-5 pt-6">
-                {!isFirstStep && (
-                  <button
-                    type="button"
-                    className="py-2 px-5 bg-red-500 hover:bg-red-600   text-white font-normal tracking-wide text-medium "
-                    onClick={prev}
-                  >
-                    Back
-                  </button>
-                )}
-                {
-                  <button
-                    type="submit"
-                    className={`py-2 px-5  ${
-                      !isLastStep ? "bg-blue-500" : "bg-green-500"
-                    }  ${
-                      !isLastStep ? "hover:bg-blue-600" : "hover:bg-green-600"
-                    }  rounded-md text-white font-normal tracking-wide text-md`}
-                  >
-                    {isLastStep ? "Submit" : "Next"}
-                  </button>
-                }
-              </div>
-            </form>
+            <MultiStepForm />
           </div>
         </div>
       </div>

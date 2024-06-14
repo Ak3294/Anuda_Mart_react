@@ -1,4 +1,6 @@
 import React from "react";
+import bigLogo from "../../assets/images/big-logo.png";
+
 import {
   CiAirportSign1,
   CiTimer,
@@ -66,9 +68,9 @@ export default function AdminSideBar() {
       <aside className={`bg-white w-64 h-screen border-r-2 border-[#DDE1EF] sideNav  ${
           isSidenavOpen ? "show" : ""
         }`}>
-        <div className="logo flex justify-center items-center h-20 ">
-          <img src="src\assets\images\big-logo.png" alt="logo" className="h-10 "/>
-        </div>
+        <div className="logo flex justify-center items-center h-20">
+      <img src={bigLogo} alt="logo" className="h-10"/>
+    </div>
 
         <div className="navlinks pt-2 mx-3">
           <ul className="flex justify-center items-center gap-2 flex-col">

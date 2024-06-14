@@ -2,6 +2,7 @@ import React from "react";
 import UserProfile from "./UserProfile";
 import UserCard from "./Usercard";
 import "./customerStyle.css";
+import "../../index.css";
 
 export default function Customers() {
   return (
