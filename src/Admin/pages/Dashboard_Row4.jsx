@@ -2,18 +2,24 @@ import { useState, React } from "react";
 import { RiDiscountPercentFill } from "react-icons/ri";
 
 function ProgressBar({ progress, color }) {
+  // Calculate width percentage for progress bar
+  const progressBarStyle = {
+    width: `${progress}%`,
+  };
+
+  // Generate class for progress bar based on color prop
+  const progressBarColorClass = `bg-${color}-500`;
+
   return (
     <div className="col-lg-12">
-      <div
-        className={`progress animated-progress`}
-        role="progressbar"
-        aria-label="Basic example"
-        aria-valuenow={progress}
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
+      <div className="progress animated-progress">
         <div
-          className={`progress-bar progress-bar-striped progress-bar-animated bg-${color} w-[${progress}%]`}
+          className={`progress-bar progress-bar-striped progress-bar-animated ${progressBarColorClass}`}
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style={progressBarStyle}
         ></div>
       </div>
     </div>
@@ -105,7 +111,7 @@ const Dashboard_Row4 = () => {
             <div key={index} className="flex items-center mb-1">
               <div className="w-1/4 text-gray-500">{status.label}</div>
               <div className="w-3/4 mt-3 ml-3">
-                <ProgressBar progress={status.progress} color={status.color} />
+                <ProgressBar progress={status.progress} color={setOrderStatus.color} />
                 <div className="text-gray-600 text-sm font-bold">
                   {status.count}
                 </div>

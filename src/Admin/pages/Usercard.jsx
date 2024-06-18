@@ -3,17 +3,16 @@ import EditCustomer from "../pages/EditCustomer";
 
 const UserCard = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const handleEditCustomer = () => {
-    setIsDialogOpen(true);
-  };
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+
+
   return (
-    <div className="mt-2 p-2 bg-white shadow-lg mr-6 grid-gap-4 sm-grid-cols-7">
+    <div className="mt-2 p-2 bg-white shadow-lg mr-6 grid-gap-2 sm-grid-cols-7 md-grid-cols-9">
       <div className="flex items-center ml-5">
         <img
           src="\src\assets\images\buyer\window.png"
@@ -113,6 +112,8 @@ const UserCard = () => {
           </button>
         </div>
       </div>
+
+
     </div>
   );
 };

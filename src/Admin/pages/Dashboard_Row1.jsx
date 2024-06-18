@@ -1,9 +1,9 @@
 import React from "react";
-import { PureComponent } from "react";
+import "../../index.css";
+import { useState } from "react";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -14,35 +14,65 @@ import {
 } from "recharts";
 
 const Card = ({ icon, title, value, change, changeType }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
-    <div className="p-2 flex flex-col justify-between">
+    <div className="p-1 flex flex-col justify-between">
       <div className="flex justify-between items-center">
         <div className="flex items-center">{icon}</div>
-        <button className="text-gray-400">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-three-dots-vertical"
-            viewBox="0 0 16 16"
+        <div className="relative">
+          <button
+            className="text-gray-400 focus:outline-none"
+            onClick={toggleDropdown}
           >
-            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-three-dots-vertical"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
+              />
+            </svg>
+          </button>
+          {isDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-40 bg-[#FFFFFF] rounded-lg shadow-lg py-1 text-sm">
+              <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                Today
+              </button>
+              <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                Last Week
+              </button>
+              <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                Last Month
+              </button>
+              <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                Current Year
+              </button>
+            </div>
+          )}
+        </div>
       </div>
       <div className="flex flex-col mt-3">
-        <p className="font-medium text-sm">{title}</p>
+        <p className="font-medium text-xs mt-2  text-[#878A99]">{title}</p>
       </div>
       <div className="flex flex-col gap-1 mt-2">
-        <p className="text-2xl font-bold">{value}</p>
-        <p className="text-sm flex items-center gap-3">
+        <p className="text-xl font-semibold">{value}</p>
+        <p className="text-sm flex items-center gap-3 mt-2 text-[#8C8F9D]">
           <span
             className={`text-${
               changeType === "increase" ? "green-300" : "red-500"
             } flex items-center`}
             style={{
-              color: changeType === "increase" ? "#38a169" : "#e53e3e", // hex colors
+              color: changeType === "increase" ? "#38a169" : "#e53e3e",
             }}
           >
             {changeType === "increase" ? (
@@ -51,11 +81,11 @@ const Card = ({ icon, title, value, change, changeType }) => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-arrow-up-left"
+                className="bi bi-arrow-up-left"
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M2 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H3.707l10.147 10.146a.5.5 0 0 1-.708.708L3 3.707V8.5a.5.5 0 0 1-1 0z"
                 />
               </svg>
@@ -65,11 +95,11 @@ const Card = ({ icon, title, value, change, changeType }) => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-arrow-down-right"
+                className="bi bi-arrow-down-right"
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0z"
                 />
               </svg>
@@ -170,8 +200,8 @@ const Dashboard_Row1 = () => {
                   <div className="h-10 w-10 rounded-circle text-blue-500 bg-blue-100 flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
+                      width="20"
+                      height="20"
                       fill="currentColor"
                       class="bi bi-wallet"
                       viewBox="0 0 16 16"
@@ -181,8 +211,8 @@ const Dashboard_Row1 = () => {
                   </div>
                 }
                 title="TOTAL REVENUE"
-                value="₹ 0M"
-                change="19.07"
+                value="₹ 750.36M"
+                change="19.07%"
                 changeType="increase"
               />
             </div>
@@ -192,8 +222,8 @@ const Dashboard_Row1 = () => {
                   <div className="h-10 w-10 rounded-circle bg-gray-100 text-grey-500 flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
+                      width="20"
+                      height="20"
                       fill="currentColor"
                       class="bi bi-bag"
                       viewBox="0 0 16 16"
@@ -203,8 +233,8 @@ const Dashboard_Row1 = () => {
                   </div>
                 }
                 title="ORDERS"
-                value="0"
-                change="8.13"
+                value="684"
+                change="8.13%"
                 changeType="increase"
               />
             </div>
@@ -214,8 +244,8 @@ const Dashboard_Row1 = () => {
                   <div className="h-10 w-10 rounded-circle bg-gray-100 flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
+                      width="20"
+                      height="20"
                       fill="currentColor"
                       class="bi bi-eye"
                       viewBox="0 0 16 16"
@@ -226,8 +256,8 @@ const Dashboard_Row1 = () => {
                   </div>
                 }
                 title="PRODUCT VIEWS"
-                value="0"
-                change="2.01"
+                value="113,870"
+                change="2.01%"
                 changeType="decrease"
               />
             </div>
@@ -237,8 +267,8 @@ const Dashboard_Row1 = () => {
                   <div className="h-10 w-10 rounded-circle text-[#4AB0C1] bg-[#caf1f7] flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
+                      width="20"
+                      height="20"
                       fill="currentColor"
                       class="bi bi-people"
                       viewBox="0 0 16 16"
@@ -248,8 +278,8 @@ const Dashboard_Row1 = () => {
                   </div>
                 }
                 title="CUSTOMERS"
-                value="0k"
-                change="10.42"
+                value="2,500k"
+                change="10.42%"
                 changeType="increase"
               />
             </div>

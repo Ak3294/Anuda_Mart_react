@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { Modal } from 'react-modal';
+import "../../index.css";
 
 function EditCustomer({onClose}) {
   const [customerName, setCustomerName] = useState("");

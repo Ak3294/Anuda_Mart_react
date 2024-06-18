@@ -14,8 +14,8 @@ export default function AdminNavbar() {
 
   return (
     <>
-      <nav className='bg-white h-16 '>
-           <div className="nav flex justify-between items-center mx-3">
+      <nav className='bg-white h-16'>
+           <div className="nav flex justify-between items-center px-4 sm:px-6 lg:px-8 h-full">
                 <div className="toggleAndSearch flex items-center gap-3">
                     <span className='toggleSidenav flex flex-col items-center justify-center h-16 gap-1 cursor-pointer' onClick={()=>dispatch(toggleAdminSidenavbar())}>
                         <span className='w-4 border-[#878A99]  border-1 self-start rounded-3xl'></span>

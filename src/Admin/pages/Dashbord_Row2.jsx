@@ -1,4 +1,5 @@
 import { useState } from "react";
+import img1 from "../../assets/images/products/img-1.png";
 
 import React, { PureComponent } from "react";
 import {
@@ -63,12 +64,18 @@ const Dashbord_Row2 = () => {
     { name: "Hollis Spencer", amount: 849.05, date: "03 Feb, 2023" },
     { name: "Cordia Grady", amount: 254.32, date: "03 Feb, 2023" },
   ]);
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   return (
     <>
       <div className="flex flex-col gap-3 sm:flex-row w-full mb-4">
         <div className="w-full sm:w-2/3 p-4 bg-[#FFFFFF] rounded-lg shadow-md ">
           <div className="card-header flex items-center justify-between">
-            <h4 className="text-xl font-bold mb-4">Sales by Countries</h4>
+            <h4 className="text-lg font-semibold  mb-4">Sales by Countries</h4>
             <div className="flex-shrink-0">
               <button
                 type="button"
@@ -79,6 +86,7 @@ const Dashbord_Row2 = () => {
             </div>
           </div>
           <div className="card-body mt-8">
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <div id="world-map-line-markers" className="h-96"></div>
@@ -115,23 +123,47 @@ const Dashbord_Row2 = () => {
         </div>
 
         <div className="w-full sm:w-1/3 p-4 bg-[#FFFFFF] rounded-lg shadow-md">
-          <h2 className="text-xl font-bold mb-4 card-header flex justify-between items-center">
-            Traffic Source
-            <div className="cursor-pointer flex-shrink-0 inline">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-three-dots-vertical"
-                viewBox="0 0 16 16"
+          <div className="flex justify-between items-center">
+            <div className="flex items-center text-lg font-semibold">Traffic Source</div>
+            <div className="relative">
+              <button
+                className="text-gray-400 focus:outline-none"
+                onClick={toggleDropdown}
               >
-                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-              </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-three-dots-vertical"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
+                  />
+                </svg>
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-[#FFFFFF] rounded-lg shadow-lg py-1  text-sm">
+                  <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                    Today
+                  </button>
+                  <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                    Last Week
+                  </button>
+                  <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                    Last Month
+                  </button>
+                  <button className="block px-2 py-1 text-gray-800 hover:bg-[#F3F6F9] w-full text-left">
+                    Current Year
+                  </button>
+                </div>
+              )}
             </div>
-          </h2>
+          </div>
 
-          <div className="flex items-center mb-2 text-center">
+          <div className="flex items-center mb-2 text-center mt-5">
             <div className="w-4 h-4 square-full bg-blue-500 mr-2"></div>
             <span className="text-gray-600">Search Engine Traffic</span>
           </div>
@@ -169,10 +201,10 @@ const Dashbord_Row2 = () => {
 
         <div className="w-full sm:w-1/3 p-4 bg-[#FFFFFF] rounded-lg shadow-md">
           <div className="card-header flex items-center justify-between">
-            <div className="flex justify-between items-center mb-4">
-              <h4 className="text-xl font-bold">Recent Sales</h4>
-              <a href="#!" className="text-muted flex items-center ml-11">
-                View All{" "}
+            <div className="flex justify-between items-center mb-4 w-full">
+              <h4 className="text-lg font-semibold">Recent Sales</h4>
+              <a href="#!" className="text-gray-500 flex items-center text-sm">
+                View All
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -198,19 +230,16 @@ const Dashbord_Row2 = () => {
                 {recentSales.map((sale, index) => (
                   <tr key={index}>
                     <td>
-                      <div className="flex items-center gap-1">
-                        <div className="flex-shrink-0">
-                          <img
-                            src={`assets/images/users/48/avatar-${
-                              index + 1
-                            }.jpg`}
-                            alt=""
-                            className="avatar-sm rounded-circle p-1"
-                          />
-                        </div>
+                      <div className="flex">
+                        <img
+                          src={img1}
+                          alt=""
+                          class="w-9 h-9 object-cover rounded-full mr-2"
+                        ></img>
+
                         <div className="flex-grow-1">
-                          <h6 className="fs-md mb-1">{sale.name}</h6>
-                          <p className="text-muted mb-0">{sale.date}</p>
+                          <h6 className="fs-md mb-1 text-sm">{sale.name}</h6>
+                          <p className="text-muted mb-0 text-xs">{sale.date}</p>
                         </div>
                       </div>
                     </td>
