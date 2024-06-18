@@ -74,7 +74,10 @@ const BusinessInformation = () => {
           <div className="flex flex-wrap mt-3">
             <div className="w-full md:w-1/2 px-4 mb-4">
               <div className="auth-pass-inputgroup">
-                <label htmlFor="businessprofile" className="flex form-label text-sm font-medium">
+                <label
+                  htmlFor="businessprofile"
+                  className="flex form-label text-sm font-medium"
+                >
                   Business Profile
                 </label>
                 <div className="relative">
@@ -97,7 +100,10 @@ const BusinessInformation = () => {
 
             <div className="w-full md:w-1/2 px-4 mb-4">
               <div className="auth-pass-inputgroup">
-                <label htmlFor="businesstype" className="flex form-label text-sm font-medium">
+                <label
+                  htmlFor="businesstype"
+                  className="flex form-label text-sm font-medium"
+                >
                   Business Type
                 </label>
                 <div className="relative">
@@ -119,7 +125,10 @@ const BusinessInformation = () => {
 
             <div className="w-full md:w-1/2 px-4 mb-4">
               <div className="auth-pass-inputgroup">
-                <label htmlFor="businessname" className="flex form-label text-sm font-medium">
+                <label
+                  htmlFor="businessname"
+                  className="flex form-label text-sm font-medium"
+                >
                   Business Name
                 </label>
                 <div className="relative">
@@ -136,7 +145,10 @@ const BusinessInformation = () => {
 
             <div className="w-full md:w-1/2 px-4 mb-4">
               <div className="auth-pass-inputgroup">
-                <label htmlFor="businessaddress" className="flex form-label text-sm font-medium">
+                <label
+                  htmlFor="businessaddress"
+                  className="flex form-label text-sm font-medium"
+                >
                   Business Address
                 </label>
                 <div className="relative">
