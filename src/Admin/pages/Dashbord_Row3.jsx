@@ -68,7 +68,6 @@ const Dashbord_Row3 = () => {
       orderDate: "15 Feb, 2023",
       orderId: "#TBS250011",
       shopCustomer: "Alex Smith",
-
       products: "Clothes",
       amount: "$109.00",
       status: "new",
@@ -127,15 +126,34 @@ const Dashbord_Row3 = () => {
     },
   ]);
 
+  function getStatusClass(status) {
+    switch (status.toLowerCase()) {
+      case "new":
+        return "bg-[#DDDDDE] text-[#1E1A22]";
+      case "pending":
+        return "bg-[#FEF4E4] text-[#EAB308]";
+      case "processing":
+        return "bg-blue-500 text-white";
+      case "shipping":
+        return "bg-[#E1E7FC] text-[#3762EA]";
+      case "completed":
+        return "bg-[#E0F7EA] text-[#2DCB73]";
+      case "cancelled":
+        return "bg-red-500 text-white";
+      default:
+        return "bg-[#FFE9E9] text-[#FF6C6C]";
+    }
+  }
+
   const [isProductdropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [isOrderDropdownOpen, setIsOrderDropdownOpen] = useState(false);
 
   const toggleOrderDropdown = () => {
     setIsOrderDropdownOpen(!isOrderDropdownOpen);
   };
-  const toggleProductdropdown=()=>{
+  const toggleProductdropdown = () => {
     setIsProductDropdownOpen(!isProductdropdownOpen);
-  }
+  };
   return (
     <>
       <div className="flex flex-col gap-3 sm:flex-row w-full mb-4">
@@ -243,9 +261,7 @@ const Dashbord_Row3 = () => {
                       {order.amount}
                     </td>
                     <td className="px-2 py-2">
-                      <span
-                        className={`badge badge-${order.status.toLowerCase()}`}
-                      >
+                      <span className={`badge ${getStatusClass(order.status)}`}>
                         {order.status}
                       </span>
                     </td>

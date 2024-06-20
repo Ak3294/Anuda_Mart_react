@@ -12,6 +12,36 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import WorldMap from "./worldMap";
+
+const salesData = [
+  { country: "United States", sales: 15364, color: "text-blue-500" },
+  {
+    country: "Greenland",
+    sales: 12387,
+    color: "text-gray-500",
+    bg: "bg-neutral-100",
+  },
+  { country: "Serbia", sales: 9123, color: "text-teal-500" },
+  {
+    country: "Russia",
+    sales: 7108,
+    color: "text-green-500",
+    bg: "bg-neutral-100",
+  },
+  { country: "Brazil", sales: 6731, color: "text-red-500" },
+  {
+    country: "Sydney",
+    sales: 3023,
+    color: "text-yellow-500",
+    bg: "bg-neutral-100",
+  },
+];
+
+let totalSales = 0;
+salesData.forEach((item) => {
+  totalSales += item.sales;
+});
 
 const Dashbord_Row2 = () => {
   const data = [
@@ -40,15 +70,6 @@ const Dashbord_Row2 = () => {
       amt: 2000,
     },
   ];
-
-  const [salesByCountries, setSalesData] = useState([
-    { country: "United States", sales: 15364 },
-    { country: "Greenland", sales: 12387 },
-    { country: "Serbia", sales: 9123 },
-    { country: "Russia", sales: 7108 },
-    { country: "Brazil", sales: 6731 },
-    { country: "Sydney", sales: 3023 },
-  ]);
 
   const [trafficData, setTrafficData] = useState([
     { name: "Feb", searchEngineTraffic: 74, directTraffic: 50 },
@@ -85,35 +106,34 @@ const Dashbord_Row2 = () => {
               </button>
             </div>
           </div>
+
           <div className="card-body mt-8">
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <div id="world-map-line-markers" className="h-96"></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="col-span-1 md:col-span-2 bg-blue-200">
+                <WorldMap />
               </div>
-              <div>
+              <div className="">
                 <h6 className="text-muted mb-3 font-medium text-xs uppercase">
                   COMPARED TO LAST MONTH
                 </h6>
-                <h3>
-                  <span className="counter-value" data-target="53736"></span>
-                  <small className="text-muted font-normal text-sm">
+
+                <div className="flex">
+                  <h1 className="text-2xl font-semibold">{totalSales}</h1>
+                  <small className="my-1 mx-2 text-muted font-medium text-base">
                     Sales
                   </small>
-                </h3>
-                <ul className="divide-y divide-gray-200">
-                  {salesByCountries.map((country, index) => (
-                    <li
-                      key={index}
-                      className={`py-2 flex items-center justify-between ${
-                        index % 2 === 0 ? "" : "bg-gray-100"
-                      }`}
-                    >
-                      <span className="flex items-center">
-                        <i className="ri-checkbox-blank-circle-fill text-primary align-bottom me-1"></i>
-                        {country.country}
+                </div>
+
+                <ul className="mt-2 list-none space-y-2 text-xs">
+                  {salesData.map((item, index) => (
+                    <li key={index} className={`p-1 rounded ${item.bg ?? ""}`}>
+                      <i
+                        className={`ri-checkbox-blank-circle-fill align-bottom mr-1 ${item.color}`}
+                      ></i>
+                      {item.country}
+                      <span className="float-right">
+                        {item.sales.toLocaleString()}
                       </span>
-                      <span>{country.sales}</span>
                     </li>
                   ))}
                 </ul>
@@ -124,7 +144,9 @@ const Dashbord_Row2 = () => {
 
         <div className="w-full sm:w-1/3 p-4 bg-[#FFFFFF] rounded-lg shadow-md">
           <div className="flex justify-between items-center">
-            <div className="flex items-center text-lg font-semibold">Traffic Source</div>
+            <div className="flex items-center text-lg font-semibold">
+              Traffic Source
+            </div>
             <div className="relative">
               <button
                 className="text-gray-400 focus:outline-none"
@@ -258,106 +280,3 @@ const Dashbord_Row2 = () => {
 };
 
 export default Dashbord_Row2;
-
-// import React, { useState } from "react";
-
-// const Dashboard_Row3 = () => {
-//   return (
-//     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-//       {/* Sales by Countries */}
-//       {/* <div className="col-span-1 md:col-span-2 xl:col-span-1">
-//         <div className="card">
-//           <div className="card-header flex items-center justify-between">
-//             <h4 className="card-title mb-0 flex-grow-1">Sales by Countries</h4>
-//             <div className="flex-shrink-0">
-//               <button type="button" className="btn btn-subtle-primary btn-sm">
-//                 Export Report
-//               </button>
-//             </div>
-//           </div>
-//           <div className="card-body">
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//               <div>
-//                 <div id="world-map-line-markers" className="h-96"></div>
-//               </div>
-//               <div>
-//                 <h6 className="text-muted mb-3 font-medium text-xs uppercase">
-//                   Compared to last month
-//                 </h6>
-//                 <h3>
-//                   <span className="counter-value" data-target="53736"></span>
-//                   <small className="text-muted font-normal text-sm">
-//                     Sales
-//                   </small>
-//                 </h3>
-//                 <ul className="divide-y divide-gray-200">
-//                   {salesByCountries.map((country, index) => (
-//                     <li
-//                       key={index}
-//                       className={`py-2 flex items-center justify-between ${
-//                         index % 2 === 0 ? "" : "bg-gray-100"
-//                       }`}
-//                     >
-//                       <span className="flex items-center">
-//                         <i className="ri-checkbox-blank-circle-fill text-primary align-bottom me-1"></i>
-//                         {country.country}
-//                       </span>
-//                       <span>{country.sales}</span>
-//                     </li>
-//                   ))}
-//                 </ul>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div> */}
-
-//       {/* Recent Sales */}
-//       <div className="col-span-1">
-//         <div className="card h-full">
-//           <div className="card-header flex items-center justify-between">
-//             <h4 className="card-title mb-0 flex-grow-1">Recent Sales</h4>
-//             <a href="#!" className="text-muted">
-//               View All <i className="ph-caret-right align-middle"></i>
-//             </a>
-//           </div>
-//           <div
-//             className="card-body overflow-auto"
-//             style={{ maxHeight: "360px" }}
-//           >
-//             <table className="table">
-//               <tbody>
-//                 {recentSales.map((sale, index) => (
-//                   <tr key={index}>
-//                     <td>
-//                       <div className="flex items-center gap-1">
-//                         <div className="flex-shrink-0">
-//                           <img
-//                             src={`assets/images/users/48/avatar-${
-//                               index + 1
-//                             }.jpg`}
-//                             alt=""
-//                             className="avatar-sm rounded-circle p-1"
-//                           />
-//                         </div>
-//                         <div className="flex-grow-1">
-//                           <h6 className="fs-md mb-1">{sale.name}</h6>
-//                           <p className="text-muted mb-0">{sale.date}</p>
-//                         </div>
-//                       </div>
-//                     </td>
-//                     <td className="text-end">
-//                       <h6 className="fs-md">{sale.amount}</h6>
-//                     </td>
-//                   </tr>
-//                 ))}
-//               </tbody>
-//             </table>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dashboard_Row3;

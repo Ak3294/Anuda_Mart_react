@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../index.css";
 
 const PersonalDetails = () => {
   const [sameAddress, setSameAddress] = useState(true);
@@ -287,10 +288,16 @@ const PersonalDetails = () => {
         </form>
         <div className="col-lg-12">
           <div className="hstack gap-2 justify-content-end mrt-30">
-            <button type="submit" className="btn btn-thm bg-[#E40F15] text-white hover:bg:black">
+            <button
+              type="submit"
+              className="text-sm btn btn-thm bg-[#E40F15] text-white hover:bg-[#0F1114]"
+            >
               Updates & Save
             </button>
-            <button type="button" className="bg-[#e4a5a7] hover:bg-[#FF6C6C] text-[#E40F15] text-white hover:bg:black btn btn-subtle-danger">
+            <button
+              type="button"
+              className="text-sm bg-[#FFE9E9] hover:bg-[#FF6C6C] text-[#E40F15] hover:text-white hover:bg:black btn btn-subtle-danger"
+            >
               Cancel
             </button>
           </div>

@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import MobileFooter from "./Buyer/componenets/martFooter/MobileFooter";
 import MobileHeader from "./Buyer/componenets/martHeader/MobileHeader";
 
+import "./index.css";
+
 function App() {
   const [showFooterAndHeader, setShowFooterAndHeader] = useState(true);
   const [lastPath, setLastPath] = useState("");
