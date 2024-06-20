@@ -13,6 +13,7 @@ import AdminLayout from './Admin/AdminLayout.jsx'
 import AdminDashboard from './Admin/pages/AdminDashboard.jsx'
 import Customers from './Admin/pages/Customers.jsx'
 import Profile from './Admin/pages/Profile.jsx'
+import Transactions from './Admin/pages/Transactions.jsx'
 
 
 
@@ -53,6 +54,10 @@ import Profile from './Admin/pages/Profile.jsx'
             {
               path:'profile',
               element: <Profile/>
+            },
+            {
+              path:'transactions',
+              element: <Transactions/>
             }
           ]
         }

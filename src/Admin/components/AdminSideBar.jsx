@@ -52,7 +52,7 @@ export default function AdminSideBar() {
     {
       name: "Transactions",
       icon: <CiCoinInsert />,
-      link: "/dashboard",
+      link: "/admin/transactions",
     },
     {
       name: "Logout",
@@ -65,7 +65,7 @@ export default function AdminSideBar() {
   console.log(isSidenavOpen);
   return (
     <>
-      <aside className={`bg-white w-64 h-screen border-r-2 border-[#DDE1EF] sideNav  ${
+      <aside className={`bg-white w-64  h-screen border-r-2 border-[#DDE1EF] sideNav  ${
           isSidenavOpen ? "show" : ""
         }`}>
         <div className="logo flex justify-center items-center h-20">
