@@ -47,7 +47,7 @@ export default function AdminSideBar() {
     {
       name: "Invoices",
       icon: <CiViewList />,
-      link: "/sign-in",
+      link: "/admin/invoices",
     },
     {
       name: "Transactions",

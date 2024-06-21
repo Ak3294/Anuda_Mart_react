@@ -154,7 +154,7 @@ const Dashboard_Row4 = () => {
             01 Jan, 2022 - 01 Jan, 2023
           </div>
           {orderStatus.map((status, index) => (
-            <div key={index} className="flex items-center mb-1">
+            <div key={index} className=" flex items-center mb-1 ">
               <div className="w-1/4 text-gray-500">{status.label}</div>
               <div className="w-3/4 mt-3 ml-3">
                 <ProgressBar

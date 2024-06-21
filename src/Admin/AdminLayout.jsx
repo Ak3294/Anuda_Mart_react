@@ -5,6 +5,7 @@ import AdminNavbar from "./components/AdminNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import "../../src/index.css";
 import Footer from "./components/Footer";
+import InvoicesList from "./pages/InvoiceViewList";
 
 export default function AdminLayout() {
   const isSidenavOpen = useSelector(
@@ -80,11 +81,12 @@ export default function AdminLayout() {
           <AdminNavbar />
         </header>
         
-        <main className="flex-1 overflow-y-auto p-4">
+        <main className="flex-1  p-4 bg-[#F7F7F7]">
           <Outlet />
         </main>
         <footer>
           <Footer/>
+          
         </footer>
       </div>
     </div>

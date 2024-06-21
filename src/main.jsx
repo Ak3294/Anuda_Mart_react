@@ -14,6 +14,7 @@ import AdminDashboard from './Admin/pages/AdminDashboard.jsx'
 import Customers from './Admin/pages/Customers.jsx'
 import Profile from './Admin/pages/Profile.jsx'
 import Transactions from './Admin/pages/Transactions.jsx'
+import InvoiceTable from './Admin/pages/InvoiceViewList.jsx'
 
 
 
@@ -58,7 +59,26 @@ import Transactions from './Admin/pages/Transactions.jsx'
             {
               path:'transactions',
               element: <Transactions/>
+            },
+            {
+              path:'/admin/invoices',
+              element:<InvoiceTable/>,
+              children:[
+                {
+                  path:'listview',
+                  element:<InvoiceTable/>
+                },
+                {
+                  path:'overview',
+                  element:<InvoiceTable/>
+                },
+                {
+                  path:'create-invoice',
+                  element:<InvoiceTable/>
+                }
+              ]
             }
+            
           ]
         }
       ]

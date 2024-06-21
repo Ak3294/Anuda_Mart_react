@@ -1,5 +1,6 @@
 import { useEffect , useState } from "react";
 import "./App.css";
+
 import { Outlet, useLocation } from "react-router-dom";
 import AnudaMartFooter from "./Buyer/componenets/martFooter/AnudaMartFooter";
 import AnudaMartHeader from "./Buyer/componenets/martHeader/AnudaMartHeader";
