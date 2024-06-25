@@ -331,7 +331,7 @@ const TestPage = () => {
                   </tr>
                 </thead>
                 <tbody className="text-gray-600 text-sm leading-normal">
-                  {filteredTransactions2.map((transaction) => (
+                  {filteredTransactions.map((transaction) => (
                     <tr key={transaction.id} className="hover:bg-gray-100">
                       <td className="py-2  px-7 text-left border border-gray-300">
                         {transaction.id}
@@ -423,8 +423,6 @@ const TestPage = () => {
             </div>
           )}
         </div>
-
-        
       </div>
     </>
   );

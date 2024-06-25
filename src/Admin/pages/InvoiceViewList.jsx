@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import InvoiceTable from "./InvoiceTable";
+import InvoiceCard from "./InvoiceOverview";
 
 const InvoiceViewList = () => {
   const initialData = [
@@ -53,7 +54,7 @@ const InvoiceViewList = () => {
           d={`M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5`}
         />
       </svg>
-      <h5 className="text-xs ml-1">{change}</h5>
+      <h5 className="text-xs">{change}</h5>
     </div>
   );
 
@@ -63,8 +64,8 @@ const InvoiceViewList = () => {
 
   return (
     <>
-      <div className="p-2">
-        <div className="flex flex-wrap justify-between items-center mb-4 p-2">
+      <div>
+        <div className="flex flex-wrap justify-between items-center mb-4 ">
           <div className="w-full sm:w-auto mb-2 sm:mb-0">
             <h3 className="text-base sm:text-lg md:text-xl font-semibold">
               INVOICE LIST
@@ -96,16 +97,16 @@ const InvoiceViewList = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row w-full mb-4 p-3 ">
-          <div className="w-full sm:w-full md:w-full lg:w-[60%] flex flex-wrap p-2 bg-white shadow-md">
+        <div className="flex flex-col sm:flex-row w-full mb-4">
+          <div className="w-full sm:w-1/2 lg:w-[60%] flex flex-wrap p-2 bg-white shadow-md">
             {data.map((item, index) => (
               <div
                 key={index}
-                className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 flex items-center mb-4"
+                className="w-full sm:w-1/2 lg:w-1/4 flex items-center mb-4"
               >
                 <div className="p-2 w-full">
                   <div className="flex items-center">
-                    <div className="ring-1 ring-blue-500 rounded-full w-8 h-8 flex items-center justify-center">
+                    <div className="ring-1 ring-blue-500 rounded-full w-7 h-7 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"
@@ -120,8 +121,8 @@ const InvoiceViewList = () => {
                     </div>
                     <div className="ml-2 text-sm">{item.label}</div>
                   </div>
-                  <div className="mt-2 flex flex-wrap items-center">
-                    <div className="text-2xl font-bold ml-2 mr-2 w-full sm:w-auto mb-2 sm:mb-0">
+                  <div className="mt-4 flex flex-wrap items-center">
+                    <div className="text-3xl font-semibold mr-2 ml-1 w-full sm:w-auto mb-2 sm:mb-0">
                       {item.count}
                     </div>
                     {renderChange(item.change, item.changeType)}
@@ -131,17 +132,16 @@ const InvoiceViewList = () => {
             ))}
           </div>
 
-          <div className="w-full sm:w-[40%]  bg-[#FFFFFF] shadow-md  p-3">
+          <div className="w-full sm:w-1/2 lg:w-[40%] bg-white shadow-md p-3">
             <div className="flex justify-between items-center mb-2">
-              <h6 class="card-title">
+              <h6 className="card-title">
                 Total Receivables
                 <i
-                  class="bi bi-exclamation-circle align-baseline ms-1 fs-sm"
+                  className="bi bi-exclamation-circle align-baseline ms-1 fs-sm"
                   data-bs-toggle="tooltip"
                   data-bs-title="Once you send an invoice (or bill), it becomes part of your accounts receivable – until it's paid."
                 ></i>
               </h6>
-
               <a
                 href="/profile"
                 className="text-blue-600 hover:text-blue-800 text-sm"
@@ -165,11 +165,10 @@ const InvoiceViewList = () => {
             </div>
           </div>
         </div>
-        
-        <InvoiceTable />
-     
+
+        {/* <InvoiceTable /> */}
+        <InvoiceCard/>
       </div>
-      
     </>
   );
 };
